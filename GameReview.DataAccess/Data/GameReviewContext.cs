@@ -1,7 +1,6 @@
 ﻿using GameReview.Data.Models.Entity;
 using GameReview.Data.Models.Security;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 
 namespace GameReview.DataAccess.Data
 {

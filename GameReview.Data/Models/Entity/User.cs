@@ -1,8 +1,4 @@
 ﻿using GameReview.Data.Models.Security;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
-
 namespace GameReview.Data.Models.Entity
 {
     public class User

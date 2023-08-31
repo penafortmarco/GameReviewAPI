@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace GameReview.Data.Models.Security
+﻿namespace GameReview.Data.Models.Security
 {
     public class Operation
     {

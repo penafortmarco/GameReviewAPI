@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess\GameReview.DataAccess.csproj" />
-    <ProjectReference Include="..\Models\GameReview.Data.csproj" />
+    <ProjectReference Include="..\GameReview.DataAccess\GameReview.DataAccess.csproj" />
+    <ProjectReference Include="..\GameReview.Data\GameReview.Data.csproj" />
   </ItemGroup>
 
 </Project>
