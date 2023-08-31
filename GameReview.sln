@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameReviewAPI", "GameReviewAPI\GameReviewAPI.csproj", "{53D5BA97-8E44-4B9B-BAB0-F62306B65A6E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameReview.DataAccess", "DataAccess\GameReview.DataAccess.csproj", "{D54277F7-01D5-4D41-A6CB-9A445F2F462F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameReview.DataAccess", "GameReview.DataAccess\GameReview.DataAccess.csproj", "{D54277F7-01D5-4D41-A6CB-9A445F2F462F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameReview.Data", "Models\GameReview.Data.csproj", "{D337E30A-0B39-4D39-BFCF-D6F60391576B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameReview.Data", "GameReview.Data\GameReview.Data.csproj", "{D337E30A-0B39-4D39-BFCF-D6F60391576B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameReview.Services", "GameReview.Services\GameReview.Services.csproj", "{CF1BAADD-0B12-41F6-8528-3C4B5B669D30}"
 EndProject
