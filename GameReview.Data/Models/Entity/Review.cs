@@ -11,10 +11,7 @@ namespace GameReview.Data.Models.Entity
         public int UserId { get; set; }
         public User User { get; set; }
         public DateTime Date { get; set; }
-
-        [JsonIgnore]
         public ICollection<Like>? Likes { get; set; }
-        [JsonIgnore]
         public ICollection<Comment>? Comments { get; set; }
 
     }

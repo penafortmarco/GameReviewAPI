@@ -1,4 +1,6 @@
-﻿namespace GameReview.Data.Models.Entity
+﻿using System.Text.Json.Serialization;
+
+namespace GameReview.Data.Models.Entity
 {
     public class Comment
     {
@@ -7,6 +9,7 @@
         public int UserId { get; set; }
         public User User { get; set; }
         public int ReviewId { get; set; }
+        [JsonIgnore]
         public Review Review { get; set; }
 
     }

@@ -36,6 +36,10 @@ namespace GameReviewAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ReviewDTO review)
         {
+            if (!ModelState.IsValid) 
+            { 
+                return BadRequest(); 
+            }
             var newReview = await _reviewService.Create(review);
 
             return CreatedAtAction(nameof(GetById), new { id = newReview.Id }, newReview);
