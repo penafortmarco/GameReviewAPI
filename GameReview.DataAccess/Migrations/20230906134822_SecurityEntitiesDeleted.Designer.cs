@@ -4,6 +4,7 @@ using GameReview.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameReview.DataAccess.Migrations
 {
     [DbContext(typeof(GameReviewContext))]
-    partial class GameReviewContextModelSnapshot : ModelSnapshot
+    [Migration("20230906134822_SecurityEntitiesDeleted")]
+    partial class SecurityEntitiesDeleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace GameReview.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.Comment", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.Comment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,7 +53,7 @@ namespace GameReview.DataAccess.Migrations
                     b.ToTable("Comment", (string)null);
                 });
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.Like", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.Like", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +76,7 @@ namespace GameReview.DataAccess.Migrations
                     b.ToTable("Like", (string)null);
                 });
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.Review", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.Review", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,7 +87,7 @@ namespace GameReview.DataAccess.Migrations
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 6, 14, 12, 13, 566, DateTimeKind.Local).AddTicks(1438));
+                        .HasDefaultValue(new DateTime(2023, 9, 6, 10, 48, 22, 566, DateTimeKind.Local).AddTicks(980));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -110,7 +113,7 @@ namespace GameReview.DataAccess.Migrations
                     b.ToTable("Review", (string)null);
                 });
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.User", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -142,15 +145,15 @@ namespace GameReview.DataAccess.Migrations
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.Comment", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.Comment", b =>
                 {
-                    b.HasOne("GameReview.Data.Entities.Models.Review", "Review")
+                    b.HasOne("GameReview.Data.Models.Entity.Review", "Review")
                         .WithMany("Comments")
                         .HasForeignKey("ReviewId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("GameReview.Data.Entities.Models.User", "User")
+                    b.HasOne("GameReview.Data.Models.Entity.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -161,15 +164,15 @@ namespace GameReview.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.Like", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.Like", b =>
                 {
-                    b.HasOne("GameReview.Data.Entities.Models.Review", "Review")
+                    b.HasOne("GameReview.Data.Models.Entity.Review", "Review")
                         .WithMany("Likes")
                         .HasForeignKey("ReviewId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("GameReview.Data.Entities.Models.User", "User")
+                    b.HasOne("GameReview.Data.Models.Entity.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -180,10 +183,10 @@ namespace GameReview.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.Review", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.Review", b =>
                 {
-                    b.HasOne("GameReview.Data.Entities.Models.User", "User")
-                        .WithMany("Reviews")
+                    b.HasOne("GameReview.Data.Models.Entity.User", "User")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -191,16 +194,11 @@ namespace GameReview.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("GameReview.Data.Entities.Models.Review", b =>
+            modelBuilder.Entity("GameReview.Data.Models.Entity.Review", b =>
                 {
                     b.Navigation("Comments");
 
                     b.Navigation("Likes");
-                });
-
-            modelBuilder.Entity("GameReview.Data.Entities.Models.User", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

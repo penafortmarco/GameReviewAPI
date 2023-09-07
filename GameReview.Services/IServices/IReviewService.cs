@@ -1,5 +1,5 @@
-﻿using GameReview.Data.DTOs;
-using GameReview.Data.Models.Entity;
+﻿using GameReview.Data.Entities.DTOs;
+using GameReview.Data.Entities.Models;
 
 namespace GameReview.Services.IServices
 {

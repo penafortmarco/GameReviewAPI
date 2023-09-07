@@ -1,4 +1,4 @@
-﻿namespace GameReview.Data.DTOs
+﻿namespace GameReview.Data.Entities.DTOs
 {
     public class ReviewDTO
     {

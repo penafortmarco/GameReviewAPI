@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using GameReview.Data.Models.Entity;
-using GameReview.Data.DTOs;
 using GameReview.Services.IServices;
+using GameReview.Data.Entities.DTOs;
+using GameReview.Data.Entities.Models;
 
 namespace GameReviewAPI.Controllers
 {

@@ -1,5 +1,4 @@
-﻿using GameReview.Data.Models.Entity;
-using GameReview.Data.Models.Security;
+﻿using GameReview.Data.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameReview.DataAccess.Data
@@ -10,11 +9,6 @@ namespace GameReview.DataAccess.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Like> Likes { get; set; }
-
-        public DbSet<Module> Modules { get; set; }
-        public DbSet<Operation> Operations { get; set; }
-        public DbSet<Rol> Rols { get; set; }
-        public DbSet<RolOperation> RolOperation { get; set; }
 
         public GameReviewContext(DbContextOptions<GameReviewContext> Options) : base(Options)
         {
@@ -30,8 +24,15 @@ namespace GameReview.DataAccess.Data
                 u.Property(p => p.UserName).IsRequired().HasMaxLength(36);
                 u.Property(p => p.Email).IsRequired().HasMaxLength(80);
                 u.Property(p => p.Password).IsRequired().HasMaxLength(50);
-                u.Property(p => p.RolId).IsRequired().HasDefaultValue(2);
             });
+            {
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Reviews)
+                .WithOne(r => r.User)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade); 
+            }
+
 
             modelBuilder.Entity<Review>(r => 
             {
@@ -57,11 +58,6 @@ namespace GameReview.DataAccess.Data
                 c.Property(p => p.UserId);
                 c.Property(p => p.ReviewId);
             });
-
-            modelBuilder.Entity<Module>(m => m.ToTable("Module"));
-            modelBuilder.Entity<Rol>(r => r.ToTable("Rol"));
-            modelBuilder.Entity<Operation>(o => o.ToTable("Operation"));
-            modelBuilder.Entity<RolOperation>(ro => ro.ToTable("Rol_Operation"));
 
             modelBuilder.Entity<Comment>()
                 .HasOne(c => c.Review)

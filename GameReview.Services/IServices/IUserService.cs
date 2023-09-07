@@ -1,10 +1,4 @@
-﻿using GameReview.Data.DTOs;
-using GameReview.Data.Models.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GameReview.Data.Entities.Models;
 
 namespace GameReview.Services.IServices
 {

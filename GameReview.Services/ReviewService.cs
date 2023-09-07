@@ -1,7 +1,8 @@
-﻿using GameReview.Data.DTOs;
-using GameReview.Data.Models.Entity;
+﻿using GameReview.Data.Entities.DTOs;
+using GameReview.Data.Entities.Models;
 using GameReview.DataAccess;
 using GameReview.Services.IServices;
+using Microsoft.IdentityModel.Tokens;
 
 namespace GameReview.Services
 {
@@ -15,12 +16,23 @@ namespace GameReview.Services
         }
         public async Task<IEnumerable<Review>> Get()
         {
-            return await _unitOfWork.reviewRepository.GetAllAsync();
+            var reviews = await _unitOfWork.reviewRepository.GetAllAsync();
+            foreach (var review in reviews) 
+            {
+                review.LikeCount = (review.Likes is not null) ? review.Likes.Count() : 0;
+            }
+            return reviews;
         }
 
         public async Task<Review?> GetById(int id)
         {
-            return await _unitOfWork.reviewRepository.GetByIdAsync(id);
+            var review = await _unitOfWork.reviewRepository.GetByIdAsync(id);
+            if (review is not null) 
+            { 
+                review.LikeCount = (review.Likes is not null) ? review.Likes.Count() : 0; 
+            }
+            
+            return review;
         }
        
         public async Task<Review> Create(ReviewDTO reviewDTO)

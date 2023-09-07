@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GameReview.Data.Models.Entity
+namespace GameReview.Data.Entities.Models
 {
     public class Review
     {
@@ -11,6 +11,8 @@ namespace GameReview.Data.Models.Entity
         public int UserId { get; set; }
         public User User { get; set; }
         public DateTime Date { get; set; }
+        [NotMapped]
+        public int LikeCount { get; set; }
         public ICollection<Like>? Likes { get; set; }
         public ICollection<Comment>? Comments { get; set; }
 

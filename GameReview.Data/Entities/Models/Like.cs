@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace GameReview.Data.Models.Entity
+namespace GameReview.Data.Entities.Models
 {
     public class Like
     {

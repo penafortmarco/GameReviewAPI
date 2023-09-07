@@ -1,7 +1,6 @@
-﻿using GameReview.Data.Models.Security;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace GameReview.Data.Models.Entity
+namespace GameReview.Data.Entities.Models
 {
     public class User
     {
@@ -10,8 +9,7 @@ namespace GameReview.Data.Models.Entity
         public string Email { get; set; }
         public string Password { get; set; }
         public string ProfilePicture { get; set; }
-        public int RolId { get; set; }
         [JsonIgnore]
-        public Rol Rol { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 }

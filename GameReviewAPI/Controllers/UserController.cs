@@ -1,4 +1,4 @@
-﻿using GameReview.Data.Models.Entity;
+﻿using GameReview.Data.Entities.Models;
 using GameReview.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,5 @@
-﻿using GameReview.Data.Models.Entity;
+﻿using GameReview.Data.Entities.Models;
+
 namespace GameReview.DataAccess.Repository.IRepositories
 {
     public interface IReviewRepository : IRepository<Review>
