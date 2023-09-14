@@ -8,17 +8,23 @@ namespace GameReview.DataAccess
         Task<int> Save();
         IReviewRepository reviewRepository { get; }
         IUserRepository userRepository { get; }
+        ILikeRepository likeRepository { get; }
     }
     public class UnitOfWork : IUnitOfWork
     {
         public IReviewRepository reviewRepository { get; }
         public IUserRepository userRepository { get; }
+        public ILikeRepository likeRepository { get; }
         private readonly GameReviewContext _context;
-        public UnitOfWork(GameReviewContext context, IReviewRepository reviewRepository, IUserRepository userRepository)
+        public UnitOfWork(GameReviewContext context, 
+            IReviewRepository reviewRepository, 
+            IUserRepository userRepository, 
+            ILikeRepository likeRepository)
         {
             _context = context;
             this.reviewRepository = reviewRepository;
             this.userRepository = userRepository;
+            this.likeRepository = likeRepository;
         }
 
         public void Dispose()

@@ -33,7 +33,6 @@ namespace GameReview.DataAccess.Data
                 .OnDelete(DeleteBehavior.Cascade); 
             }
 
-
             modelBuilder.Entity<Review>(r => 
             {
                 r.ToTable("Review");

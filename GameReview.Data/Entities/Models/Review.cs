@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace GameReview.Data.Entities.Models
 {
@@ -13,6 +14,7 @@ namespace GameReview.Data.Entities.Models
         public DateTime Date { get; set; }
         [NotMapped]
         public int LikeCount { get; set; }
+        [JsonIgnore]
         public ICollection<Like>? Likes { get; set; }
         public ICollection<Comment>? Comments { get; set; }
 

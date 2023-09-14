@@ -10,6 +10,6 @@ namespace GameReview.Data.Entities.Models
         public string Password { get; set; }
         public string ProfilePicture { get; set; }
         [JsonIgnore]
-        public ICollection<Review> Reviews { get; set; }
+        public ICollection<Review>? Reviews { get; set; }
     }
 }

@@ -14,16 +14,16 @@ namespace GameReview.DataAccess.Repository
             _context = context;
             dbSet = _context.Set<T>();
         }
-        public async Task<List<T>> GetAllAsync()
+        public virtual async Task<List<T>> GetAllAsync()
         {
             return await dbSet.ToListAsync();
         }
-        public async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
             return await dbSet.FindAsync(id);
         }
 
-        public async Task CreateAsync(T entity)
+        public virtual async Task CreateAsync(T entity)
         {
             await dbSet.AddAsync(entity);
         }

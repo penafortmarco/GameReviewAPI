@@ -60,7 +60,7 @@ namespace GameReviewAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async  Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var reviewToDelete = await _reviewService.GetById(id);
 

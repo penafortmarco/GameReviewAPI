@@ -18,13 +18,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<GameReviewContext>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("GameReviewConnection")));
 
-//Repository
+//Repository Layer
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ILikeRepository, LikeRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 //Service Layer
 builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ILikeService, LikeService>();
 
 
 var app = builder.Build();

@@ -12,14 +12,14 @@ namespace GameReview.DataAccess.Repository
             
         }
 
-        public async Task<List<Review>> GetAllAsync() 
+        public override async Task<List<Review>> GetAllAsync() 
         {
             return await dbSet
                 .Include(r => r.User)
                 .Include(r => r.Comments)
                 .ToListAsync();
         }
-        public async Task<Review?> GetByIdAsync(int id)
+        public override async Task<Review?> GetByIdAsync(int id)
         {
             return await dbSet
                 .Include(r => r.User)
